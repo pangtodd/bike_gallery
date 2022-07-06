@@ -10,15 +10,20 @@ default: &default
 development:
   <<: *default
   database: bike_gallery_development
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 test:
   <<: *default
   database: bike_gallery_test
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 
 production:
   <<: *default
   database: bike_gallery_production
+
   username: bike_gallery
   password: <%= ENV['BIKE_GALLERY_DATABASE_PASSWORD'] %>
 
