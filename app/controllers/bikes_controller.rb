@@ -6,7 +6,6 @@ class BikesController < ApplicationController
   end
 
   def home
-    @bike = Bike.all
     render :home
   end
 
@@ -16,11 +15,12 @@ class BikesController < ApplicationController
   end
 
   def create
-    @bike = Bike.new(bike_params)
+    @bike = Bike.new(bikes_params)
     if @bike.save
       flash[:notice] = "Bike successfully added!"
       redirect_to bike_path
     else
+      flash[:alert] = "Oops..Looks like there was an error in creating your bike. Try again."
       render :new
     end
   end
@@ -37,21 +37,28 @@ class BikesController < ApplicationController
 
   def update
     @bike = Bike.find(params[:id])
-    if @bike.update(bike_params)
+    if @bike.update(bikes_params)
+      flash[:notice] = "Bike successfully updated"
       redirect_to bike_path
     else
+      flash[:alert] = "Oops..Looks like there was an error in updating your bike. Try again."
       render :edit
     end
   end
 
   def destroy
     @bike = Bike.find(params[:id])
-    @bike.destroy
-    redirect_to bike_path
+    if @bike.destroy
+      flash[:notice] = "Product successfully deleted"
+    redirect_to bikes_path
+    else
+      flash[:alert] = "Oops..Looks like there was an error in deleting your bike. Try again."
+      render :show
+    end
   end
 
   private
-  def bike_params
+  def bikes_params
     params.require(:bike).permit(:name, :make, :model, :category, :size, :year, :descrption, :color, :status, :price)
   end
 end

@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review successfully added!"
       redirect_to bike_path(@bike)
     else
+      flash[:alert] = "Oops..looks like there was an error in creating your review. Try again."
       render :new
     end
   end
@@ -32,16 +33,23 @@ class ReviewsController < ApplicationController
     @bike = Bike.find(params[:bike_id])
     @review = Review.find(params[:id])
     if @review.update(review_params)
+      flash[:notice] = "Review sucessfully updated"
       redirect_to bike_path(@review.bike)
     else
+      flash[:alert] = "Oops..looks like there was an error in updating your review. Try again."
       render :edit
     end
   end
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
+    if @review.destroy
+      flash[:notice] = "Review successfully deleted"
     redirect_to bike_path(@review.bike)
+    else
+      flash[:alert] = "Oops..Looks like there was an error in deleting your bike. Try again."
+      render :show
+    end
   end
 
   private
