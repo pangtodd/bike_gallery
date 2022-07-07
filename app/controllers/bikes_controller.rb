@@ -1,7 +1,13 @@
-class BikeController < ApplicationController
+class BikesController < ApplicationController
+
   def index
-    @bike = Bike.all
+    @bikes = Bike.all
     render :index
+  end
+
+  def home
+    @bike = Bike.all
+    render :home
   end
 
   def new
@@ -46,6 +52,6 @@ class BikeController < ApplicationController
 
   private
   def bike_params
-    params.require(:bike).permit(:name, :make, :model, :type, :size, :year, :descrption, :color, :status, :price)
+    params.require(:bike).permit(:name, :make, :model, :category, :size, :year, :descrption, :color, :status, :price)
   end
 end

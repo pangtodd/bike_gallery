@@ -4,12 +4,43 @@
     <title>BikeGallery</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class="header">
+  <div class="jumbotron text-center" style="background-color:#f0f0f0">
+    <div class="container-fluid">
+      <h1 class="display-4">Bike Gallery</h1>
+    <%# <%= render "layouts/navbar"%>
+    </div>
+  </div>
+  </div>
     <%= yield %>
+
+  <div class="footer">
+      <div class="jumbotron text-center" style="background-color: #fff; margin-bottom:0">
+        <div class="container-fluid" style="margin-top:30px">
+          <div class="row">
+            <div class="col-sm-4">
+              <h3>Find us</h3>
+              <p>1234 SW Mushroom Blvd.
+                Mushroom Kingdom 32219</p>
+              <p>8am-10pm Daily</p>
+            </div>
+            <div class="col-sm-4">
+              <h3>Say hello</h3>
+              <p>For questions, concerns, or to just say hi, email us at bikeyboi@bikegallery.org</p>
+            </div>
+            <div class="col-sm-4">
+              <h3>Connect with us</h3>
+              <p>Follow us on any social media site @bikeyboi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

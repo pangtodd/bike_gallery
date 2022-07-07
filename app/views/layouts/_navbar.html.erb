@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Mario's Foods</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+      </li>
+      <% if current_user  %>
+        <li class="nav-item">
+          <a class="nav-link" <%=link_to('Logout', destroy_user_session_path, method: :delete)%> </a>
+        </li>
+      <% else %> 
+        <li class="nav-item">
+          <a class="nav-link" <%=link_to"Sign-In",new_user_session_path %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" <%=link_to"Register",new_user_registration_path %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<% if user_signed_in? %>
+<p>Signed in as: <%= current_user.email.split('@')[0].capitalize %></p>
+<% end %>
