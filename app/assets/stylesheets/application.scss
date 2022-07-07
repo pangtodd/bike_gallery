@@ -1,0 +1,18 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color:#fff;
+} 
+
+.navbar {
+  font-size: medium;
+}
+
+a {
+  color: var(--bs-blue);
+}
+
+#home, #all-bikes, #new-bikes {
+  color: adjust-hue($color: #3f3f3f, $degrees: 0);
+}
