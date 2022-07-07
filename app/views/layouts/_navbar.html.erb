@@ -1,26 +1,27 @@
 <header>
   <div class="container">
-    <nav class="navbar navbar-light" style="background-color: #fff;">
+    <nav class="navbar navbar-light"  style="background-color:#f0f0f0" >
       <div class="container-fluid">
         <div class="navbar-header">
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <button class="btn btn-link" style="font-size: medium">
+         <button class="btn btn-link" style="font-size: medium">
             <div id="home">
               <%= link_to "Home", root_path, class: "nav-brand" %>
             </div>
           </button>
+          <ul class="nav navbar-nav navbar-right">
           <button class="btn btn-link" style="font-size: medium">
             <div id="all-bikes">
               <%= link_to "All Bikes", bikes_path %>
             </div>
           </button>
-          
+        </div>
+         
             <button class="btn btn-link" style="font-size: medium">
               <div id="new-bikes">
                 <%= link_to "New Bike", new_bike_path %>
               </div>
             </button>
+          
         </ul>
       </div>
     </nav>

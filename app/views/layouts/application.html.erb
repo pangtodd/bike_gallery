@@ -14,13 +14,17 @@
       <div class="jumbotron text-center" style="background-color:#f0f0f0">
         <div class="container-fluid">
           <h1 class="display-4">Bike Gallery</h1>
-        <%# <%= render "layouts/navbar"%>
+        
         </div>
+        <%= render "layouts/navbar" %>
       </div>
     </div>
-    <div class="container">
-      <%= yield %>
-    </div>
+
+     <%= render "layouts/alerts" %>
+
+    <%= yield %>
+
+       
     
     
   

@@ -1,0 +1,7 @@
+<section class="container">
+  <div id="flash">
+    <% flash.each do |key, value| %>
+      <div class="flash alert <%= alert_class_by_type(key) %>"><%= value %></div>
+    <% end %>
+  </div>
+</section>
