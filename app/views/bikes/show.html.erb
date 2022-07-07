@@ -1,6 +1,13 @@
-<h1><%= @pbike.name %></h1>
-<p>Price: $<%= @pbike.price %></p>
-<p>model: <%= @bike.model%></p>
+<h1><%= @bike.name %></h1>
+<p>Price: $<%= @bike.price %></p>
+<p>Model: <%= @bike.model%></p>
+<p>Make: <%= @bike.make%></p>
+<p>Category: <%= @bike.category%></p>
+<p>Size: <%= @bike.size%></p>
+<p>Year: <%= @bike.year%></p>
+<p>Description: <%= @bike.description%></p>
+<p>Color: <%= @bike.color%></p>
+<p>Status: <%= @bike.status%></p>
 
 <% if @bike.reviews.any? %>
   <h4>Reviews for this bike:</h4>
@@ -15,13 +22,11 @@
 <% else %>
   <p>No reviews are listed for this bike.</p>
 <% end %>
-<%# <%if current_user%>
-  <p><%= link_to "Add a review", new_product_review_path(@product) %></p>
-<%end%>
-<%if is_admin?%>
-  <p><%= link_to "Edit", edit_product_path(@product) %></p>
-  <p><%= link_to "Delete", product_path(@product),
-                         :data => {:confirm => "You sure?",
+
+  <p><%= link_to "Add a review", new_bike_review_path(@bike) %></p>
+  <p><%= link_to "Edit", edit_bike_path(@bike) %></p>
+  <p><%= link_to "Delete", bike_path(@bike),
+                         :data => {:confirm => "Are you sure you want to delete: #{@bike.name}?",
                                    :method => "delete"} %></p>
-<%end%> %>
-<p><%= link_to "Return to products", products_path %></p>
+
+<p><%= link_to "Return to bikes", bikes_path %></p>
