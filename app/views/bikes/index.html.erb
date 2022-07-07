@@ -1,18 +1,20 @@
-<h1>Bikes</h1>
-<%# <%= image_tag "product.jpeg" %>
+<div class="container">
+  <h1>Bikes</h1>
+  <%# <%= image_tag "product.jpeg" %>
 
-<p>Only the finest for our customers!</p>
+  <p>Only the finest for our customers!</p>
 
-<% if @bikes.any? %>
-    <div class="card card-body">
-      <p>yo</p>
-      <ul>
-        <% @bikes.each do |bike| %>
-          <li><%= link_to bike.name, bike_path(bike) %></li>
-        <% end %>
-      </ul>
-    </div>
-  
-<% else %>
-  <p>Hold your horses, we're still stocking the store!</p>
-<% end %>
+  <% if @bikes.any? %>
+      <div class="card card-body">
+        <p>yo</p>
+        <ul>
+          <% @bikes.each do |bike| %>
+            <li><%= link_to bike.name, bike_path(bike) %></li>
+          <% end %>
+        </ul>
+      </div>
+    
+  <% else %>
+    <p>Hold your horses, we're still stocking the store!</p>
+  <% end %>
+</div>

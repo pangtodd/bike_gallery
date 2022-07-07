@@ -1,32 +1,34 @@
-<h1><%= @bike.name %></h1>
-<p>Price: $<%= @bike.price %></p>
-<p>Model: <%= @bike.model%></p>
-<p>Make: <%= @bike.make%></p>
-<p>Category: <%= @bike.category%></p>
-<p>Size: <%= @bike.size%></p>
-<p>Year: <%= @bike.year%></p>
-<p>Description: <%= @bike.description%></p>
-<p>Color: <%= @bike.color%></p>
-<p>Status: <%= @bike.status%></p>
+<div class="container">
+  <h1><%= @bike.name %></h1>
+  <p>Price: $<%= @bike.price %></p>
+  <p>Model: <%= @bike.model%></p>
+  <p>Make: <%= @bike.make%></p>
+  <p>Category: <%= @bike.category%></p>
+  <p>Size: <%= @bike.size%></p>
+  <p>Year: <%= @bike.year%></p>
+  <p>Description: <%= @bike.description%></p>
+  <p>Color: <%= @bike.color%></p>
+  <p>Status: <%= @bike.status%></p>
 
-<% if @bike.reviews.any? %>
-  <h4>Reviews for this bike:</h4>
+  <% if @bike.reviews.any? %>
+    <h4>Reviews for this bike:</h4>
 
-  <% @bike.reviews.each do |review| %>
-    <ul>
-      <li>
-        <%= link_to "#{review.rating} stars, review by #{review.author}", bike_review_path(@bike, review) %>
-      </li>
-    </ul>
+    <% @bike.reviews.each do |review| %>
+      <ul>
+        <li>
+          <%= link_to "#{review.rating} stars, review by #{review.author}", bike_review_path(@bike, review) %>
+        </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>No reviews are listed for this bike.</p>
   <% end %>
-<% else %>
-  <p>No reviews are listed for this bike.</p>
-<% end %>
 
-  <p><%= link_to "Add a review", new_bike_review_path(@bike) %></p>
-  <p><%= link_to "Edit", edit_bike_path(@bike) %></p>
-  <p><%= link_to "Delete", bike_path(@bike),
-                         :data => {:confirm => "Are you sure you want to delete: #{@bike.name}?",
-                                   :method => "delete"} %></p>
+    <p><%= link_to "Add a review", new_bike_review_path(@bike), class: "btn btn-default" %></p>
+    <p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-default" %></p>
+    <p><%= link_to "Delete", bike_path(@bike),  class: "btn btn-danger",
+                          :data => {:confirm => "Are you sure you want to delete: #{@bike.name}?",
+                                    :method => "delete"} %></p>
 
-<p><%= link_to "Return to bikes", bikes_path %></p>
+  <p><%= link_to "Return to bikes", bikes_path, class: "btn btn-default" %></p>
+</div>
