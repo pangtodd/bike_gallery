@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_034721) do
+ActiveRecord::Schema.define(version: 2022_07_07_013904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bike", force: :cascade do |t|
+  create_table "bikes", force: :cascade do |t|
     t.string "name"
     t.string "make"
     t.string "model"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_07_06_034721) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "review", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.string "author"
     t.string "content"
     t.integer "rating"
@@ -39,5 +39,5 @@ ActiveRecord::Schema.define(version: 2022_07_06_034721) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "review", "bike"
+  add_foreign_key "reviews", "bikes"
 end
