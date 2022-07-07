@@ -1,0 +1,25 @@
+<%= render "layouts/errors", :object=> @bike %>
+
+<%= form_for @bike do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.label :make %>
+  <%= f.text_field :make%>
+  <%= f.label :model %>
+  <%= f.text_field :model %>
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+  <%= f.label :size %>
+  <%= f.text_field :size %>
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+  <%= f.label :status %>
+  <%= f.text_field :status %>
+  <%= f.submit  %>
+<% end %>

@@ -41,7 +41,6 @@ production:
 #   username: <%= ENV['POSTGRES_USERNAME'] %>
 #   password: <%= ENV['POSTGRES_PASSWORD'] %>
 
-  
 # test:
 #   <<: *default
 #   database: bike_gallery_test

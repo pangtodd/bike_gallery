@@ -1,7 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Bike.destroy_all
+Review.destroy_all
+# User.destroy_all
+
+# admin = User.create!(:email => 'admin@test.com', :password => 'Password@123', :admin => true)
+# user = User.create!(:email => 'user@test.com', :password => 'Password@123')
+
+10.times do |index|
+bike = Bike.create!(name: Faker::Kpop.iii_groups,
+    make: Faker::Vehicle.make,
+    model: Faker::Vehicle.model,
+    category: Faker::Vehicle.model(make_of_model: 'Toyota'),
+    size: Faker::Creature::Dog.size,
+    year: Faker::Vehicle.year,
+    description:  Faker::Lorem.sentences(number: 1),
+    color: Faker::Vehicle.color,
+    status: ["available", "unavailable"].sample,
+    price: Faker::Number.number(digits: 3)
+  )
+5.times do |index|
+  Review.create!(author: Faker::DcComics.name,
+    content: Faker::Hipster.paragraph_by_chars(characters: 100, supplemental: false),
+    rating: Faker::Number.between(from: 1, to: 5),
+    bike_id: bike.id
+  )
+  end
+  p "Created #{Review.count} reviews"
+end
+p "Created #{Bike.count} bikes"
