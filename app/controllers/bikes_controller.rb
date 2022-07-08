@@ -56,9 +56,14 @@ class BikesController < ApplicationController
       render :show
     end
   end
+  
+  def attach()
+    @bike = Bike.find(params[:id])
+    @bike.bike_photo.attach(params[:bike][:bike_photo])
+  end
 
   private
   def bikes_params
-    params.require(:bike).permit(:name, :make, :model, :category, :size, :year, :description, :color, :status, :price)
+    params.require(:bike).permit(:name, :make, :model, :category, :size, :year, :description, :color, :status, :price, :bike_photo)
   end
 end

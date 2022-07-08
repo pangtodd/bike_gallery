@@ -2,7 +2,7 @@
   <%= render "layouts/errors", :object=> @bike %>
 
   <%= form_for @bike do |f| %>
-  <div class="form-group">
+    <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
     </div>
@@ -31,8 +31,8 @@
       <%= f.text_field :year, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: "form-control" %>
+      <%= f.label :Description %>
+      <%= f.text_field :description, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :color %>
@@ -42,7 +42,11 @@
       <%= f.label :status %>
       <%= f.text_field :status, class: "form-control" %>
     </div>
-  <div class="actions">
+     <div class="form-group">
+      <%= f.label :photo %>
+      <%= f.file_field :bike_photo, class: "form-control" %>
+    </div>
+    <div class="actions">
       <%= f.submit class: "btn btn-primary" %>
     </div>
   <% end %>

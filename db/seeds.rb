@@ -15,7 +15,7 @@ bike = Bike.create!(name: Faker::Kpop.iii_groups,
     category: Faker::Vehicle.model(make_of_model: 'Toyota'),
     size: Faker::Creature::Dog.size,
     year: Faker::Vehicle.year,
-    description:  Faker::Lorem.sentences(number: 1),
+    description:  Faker::Hipster.paragraph_by_chars(characters: 100, supplemental: false),
     color: Faker::Vehicle.color,
     status: ["available", "unavailable"].sample,
     price: Faker::Number.number(digits: 3)

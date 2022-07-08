@@ -9,6 +9,9 @@
   <p>Description: <%= @bike.description%></p>
   <p>Color: <%= @bike.color%></p>
   <p>Status: <%= @bike.status%></p>
+  <% if @bike.bike_photo.attached? %>
+    <%= image_tag @bike.bike_photo %>
+  <% end %>
 
   <% if @bike.reviews.any? %>
     <h4>Reviews for this bike:</h4>
