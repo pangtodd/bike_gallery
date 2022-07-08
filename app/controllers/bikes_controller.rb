@@ -18,7 +18,7 @@ class BikesController < ApplicationController
     @bike = Bike.new(bikes_params)
     if @bike.save
       flash[:notice] = "Bike successfully added!"
-      redirect_to bike_path
+      redirect_to bikes_path
     else
       flash[:alert] = "Oops..Looks like there was an error in creating your bike. Try again."
       render :new
@@ -39,7 +39,7 @@ class BikesController < ApplicationController
     @bike = Bike.find(params[:id])
     if @bike.update(bikes_params)
       flash[:notice] = "Bike successfully updated"
-      redirect_to bike_path
+      redirect_to bikes_path
     else
       flash[:alert] = "Oops..Looks like there was an error in updating your bike. Try again."
       render :edit
@@ -59,6 +59,6 @@ class BikesController < ApplicationController
 
   private
   def bikes_params
-    params.require(:bike).permit(:name, :make, :model, :category, :size, :year, :descrption, :color, :status, :price)
+    params.require(:bike).permit(:name, :make, :model, :category, :size, :year, :description, :color, :status, :price)
   end
 end
