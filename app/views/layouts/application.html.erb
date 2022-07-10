@@ -19,8 +19,8 @@
         <%= render "layouts/navbar" %>
       </div>
     </div>
-
-     <%= render "layouts/alerts" %>
+    <%= flash[:alert] %>
+    <%= render "layouts/alerts" %>
 
     <%= yield %>
 
