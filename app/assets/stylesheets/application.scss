@@ -3,7 +3,27 @@
 
 body {
   background-color:#fff;
-} 
+}
+
+table {
+  // border: 1px solid black;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th,
+td {
+  // border: 1px solid black;
+  width: 150px;
+  overflow: hidden;
+  padding: 4px;
+  vertical-align: bottom;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
 
 .navbar {
   font-size: medium;

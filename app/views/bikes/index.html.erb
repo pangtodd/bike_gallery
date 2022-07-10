@@ -6,12 +6,21 @@
 
   <% if @bikes.any? %>
       <div class="card card-body">
-        <p>yo</p>
-        <ul>
-          <% @bikes.each do |bike| %>
-            <li><%= link_to bike.name, bike_path(bike) %></li>
+        <table>
+          <% @bikes.each_slice(3) do |bikes|%>
+            <tr>
+              <% bikes.each do |bike| %>
+                <td>
+                  <% if bike.bike_photo.attached? %>
+                    <%= image_tag bike.bike_photo %>
+                  <% end %>
+                  <h3> <%=link_to bike.name, bike_path(bike) %></h3>
+                  <p> Price: $<%= bike.price %> · <%= bike.make %> · <%= bike.year %>  </p>
+                </td>
+              <%end%>
+            </tr>    
           <% end %>
-        </ul>
+        </table>
       </div>
     
   <% else %>
