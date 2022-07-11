@@ -1,0 +1,23 @@
+<h1>Products</h1>
+<%# <%= image_tag "product.jpeg" %>
+
+<p>Only the finest for our customers!</p>
+
+<% if @bikes.any? %>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    All products
+  </button>
+
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <ul>
+        <% @bikes.each do |bike| %>
+          <li><%= bike.name %></li>
+          <%# <li><%= link_to bike.name, bikes_path(bike) %></li> %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% else %>
+  <p>Hold your horses, we're still stocking the store!</p>
+<% end %>
