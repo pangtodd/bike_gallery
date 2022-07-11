@@ -1,0 +1,26 @@
+div class="container">
+  <h1>Bikes</h1>
+  <%# <%= image_tag "product.jpeg" %>
+
+  <p>Only the finest for our customers!</p>
+
+  <% if @bikes.any? %>
+      <div class="card card-body">
+        <% @bikes.each do |bike| %>
+          <br>
+          <br>
+          <div class="gallery">
+            <% if bike.bike_photo.attached? %>
+              <%= image_tag bike.bike_photo %>
+            <% end %>
+            <%= bike.name%>
+            <%= bike.price%>
+          <%= link_to bike.name, bike_path(bike) %></li>
+          </div>
+        <% end %>
+      </div>
+    
+  <% else %>
+    <p>Hold your horses, we're still stocking the store!</p>
+  <% end %>
+</div>

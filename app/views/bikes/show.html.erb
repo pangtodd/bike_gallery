@@ -1,31 +1,33 @@
 <div class="container">
-  <h1><%= @bike.name %></h1>
-  <p>Price: $<%= @bike.price %></p>
-  <p>Model: <%= @bike.model%></p>
-  <p>Make: <%= @bike.make%></p>
-  <p>Category: <%= @bike.category%></p>
-  <p>Size: <%= @bike.size%></p>
-  <p>Year: <%= @bike.year%></p>
-  <p>Description: <%= @bike.description%></p>
-  <p>Color: <%= @bike.color%></p>
-  <p>Status: <%= @bike.status%></p>
-  <% if @bike.bike_photo.attached? %>
-    <%= image_tag @bike.bike_photo %>
-  <% end %>
-
-  <% if @bike.reviews.any? %>
-    <h4>Reviews for this bike:</h4>
-
-    <% @bike.reviews.each do |review| %>
-      <ul>
-        <li>
-          <%= link_to "#{review.rating} stars, review by #{review.author}", bike_review_path(@bike, review) %>
-        </li>
-      </ul>
+  <div class="bikeX">
+    <h1><%= @bike.name %></h1>
+    <p>Price: $<%= @bike.price %></p>
+    <p>Model: <%= @bike.model%></p>
+    <p>Make: <%= @bike.make%></p>
+    <p>Category: <%= @bike.category%></p>
+    <p>Size: <%= @bike.size%></p>
+    <p>Year: <%= @bike.year%></p>
+    <p>Description: <%= @bike.description%></p>
+    <p>Color: <%= @bike.color%></p>
+    <p>Status: <%= @bike.status%></p>
+    <% if @bike.bike_photo.attached? %>
+      <%= image_tag @bike.bike_photo %>
     <% end %>
-  <% else %>
-    <p>No reviews are listed for this bike.</p>
-  <% end %>
+
+    <% if @bike.reviews.any? %>
+      <h4>Reviews for this bike:</h4>
+
+      <% @bike.reviews.each do |review| %>
+        <ul>
+          <li>
+            <%= link_to "#{review.rating} stars, review by #{review.author}", bike_review_path(@bike, review) %>
+          </li>
+        </ul>
+      <% end %>
+    <% else %>
+      <p>No reviews are listed for this bike.</p>
+    <% end %>
+  </div>
 
     <p><%= link_to "Add a review", new_bike_review_path(@bike), class: "btn btn-default" %></p>
 <% if current_user && current_user.admin %>
