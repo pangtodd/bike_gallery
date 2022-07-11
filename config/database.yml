@@ -1,33 +1,5 @@
 
-#Mac
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   # For details on connection pooling, see Rails configuration guide
-#   # http://guides.rubyonrails.org/configuring.html#database-pooling
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-# development:
-#   <<: *default
-#   database: bike_gallery_development
-#   username: <%= ENV['POSTGRES_USERNAME'] %>
-#   password: <%= ENV['POSTGRES_PASSWORD'] %>
-
-# test:
-#   <<: *default
-#   database: bike_gallery_test
-#   username: <%= ENV['POSTGRES_USERNAME'] %>
-#   password: <%= ENV['POSTGRES_PASSWORD'] %>
-
-
-# production:
-#   <<: *default
-#   database: bike_gallery_production
-#   username: bike_gallery
-#   password: <%= ENV['BIKE_GALLERY_DATABASE_PASSWORD'] %>
-
-
-# PC- uncomment this section if pc
+# Mac
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -51,5 +23,33 @@ test:
 production:
   <<: *default
   database: bike_gallery_production
-  username: <%= ENV['POSTGRES_USERNAME'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  username: bike_gallery
+  password: <%= ENV['BIKE_GALLERY_DATABASE_PASSWORD'] %>
+
+
+# PC- uncomment this section if pc
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   # For details on connection pooling, see Rails configuration guide
+#   # http://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+# development:
+#   <<: *default
+#   database: bike_gallery_development
+#   username: <%= ENV['POSTGRES_USERNAME'] %>
+#   password: <%= ENV['POSTGRES_PASSWORD'] %>
+
+# test:
+#   <<: *default
+#   database: bike_gallery_test
+#   username: <%= ENV['POSTGRES_USERNAME'] %>
+#   password: <%= ENV['POSTGRES_PASSWORD'] %>
+
+
+# production:
+#   <<: *default
+#   database: bike_gallery_production
+#   username: <%= ENV['POSTGRES_USERNAME'] %>
+#   password: <%= ENV['POSTGRES_PASSWORD'] %>
