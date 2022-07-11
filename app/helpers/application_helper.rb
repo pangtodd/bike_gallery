@@ -11,4 +11,8 @@ module ApplicationHelper
       "alert-info"
     end
   end
+
+  def is_admin?
+    current_user && current_user.admin
+  end
 end
