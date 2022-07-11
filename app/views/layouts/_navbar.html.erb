@@ -1,27 +1,37 @@
 <header>
   <div class="container">
-    <nav class="navbar navbar-light"  style="background-color:#f0f0f0" >
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ffffff;">
+       <div class="container-fluid">
         <div class="navbar-header">
-         <button class="btn btn-link" style="font-size: medium">
+          <% if is_admin? %>
+            <%= link_to "Admin", rails_admin_path %> |
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+            <%= link_to "Profile", user_path(current_user) %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path %> |
+            <%= link_to "Sign Up", new_user_registration_path %>
+          <% end %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <button class="btn btn-link" style="font-size: medium">
             <div id="home">
               <%= link_to "Home", root_path, class: "nav-brand" %>
             </div>
           </button>
-          <ul class="nav navbar-nav navbar-right">
           <button class="btn btn-link" style="font-size: medium">
             <div id="all-bikes">
               <%= link_to "All Bikes", bikes_path %>
             </div>
           </button>
-        </div>
-         
+          <% if is_admin? %>
             <button class="btn btn-link" style="font-size: medium">
-              <div id="new-bikes">
+               <div id="new-bikes">
                 <%= link_to "New Bike", new_bike_path %>
               </div>
             </button>
-          
+          <% end %>
         </ul>
       </div>
     </nav>
