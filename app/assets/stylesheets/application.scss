@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 body {
-  background-color:#fff;
+  background-color: #ffffff;
 }
 
 table {
@@ -35,4 +35,11 @@ a {
 
 #home, #all-bikes, #new-bikes {
   color: adjust-hue($color: #3f3f3f, $degrees: 0);
+}
+
+#carouselExampleControls{
+  width: 50px;
+  height: 50px;
+  margin-bottom: 50px;
+  margin-top: 20px;
 }
