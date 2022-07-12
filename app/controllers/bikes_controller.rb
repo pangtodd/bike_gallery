@@ -9,6 +9,7 @@ class BikesController < ApplicationController
   end
 
   def home
+    @bikes = Bike.all
     render :home
   end
 
