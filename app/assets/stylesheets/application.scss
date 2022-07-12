@@ -1,6 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.bgimage {
+  height:160vh;
+  background: url("https://time.com/3852303/bike-to-work-week-freebies-tips/");
+  background-size:cover;
+  position:relative;
+}
+
+.hero_title {
+  font-size: 4.5rem;
+}
+.hero_desc {
+  font-size: 2rem;
+}
+.hero-text {
+  text-align: left;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+}
+
 body {
   background-color: #ffffff;
 }
@@ -42,4 +64,7 @@ a {
   height: 50px;
   margin-bottom: 50px;
   margin-top: 20px;
+}
+
+.hr{
 }
