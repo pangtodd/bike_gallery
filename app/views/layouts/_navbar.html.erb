@@ -5,7 +5,7 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <% if is_admin? %>
-              <%= link_to "Admin", rails_admin_path %>
+              <%= link_to "Admin", rails_admin_path, class: "btn btn-dark" %>
             <% end %>
             <% if user_signed_in? %>
               <%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete %>
