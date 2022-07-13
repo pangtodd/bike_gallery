@@ -1,41 +1,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.bgimage {
-  height:160vh;
-  background: url("https://time.com/3852303/bike-to-work-week-freebies-tips/");
-  background-size:cover;
-  position:relative;
-}
-
-.hero_title {
-  font-size: 4.5rem;
-}
-.hero_desc {
-  font-size: 2rem;
-}
-.hero-text {
-  text-align: left;
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: whitesmoke;
-}
-
 body {
   background-color: #ffffff;
 }
 
+@media screen and (max-width: 800px) {
+  .body {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .body {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
 table {
-  // border: 1px solid black;
   table-layout: fixed;
   width: 100%;
 }
 
 th,
 td {
-  // border: 1px solid black;
   width: 150px;
   overflow: hidden;
   padding: 4px;
@@ -47,24 +37,41 @@ img {
   width: 100%;
 }
 
-.navbar {
-  font-size: medium;
+.logo {
+  height: auto;
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-a {
-  color: var(--bs-blue);
+
+.home-bike{
+  padding-top: 0px;
+  padding-bottom: 10px;
 }
 
-#home, #all-bikes, #new-bikes {
-  color: adjust-hue($color: #3f3f3f, $degrees: 0);
+.btn {
+  font-size: 18px;
+  transition: all 0.2s;
+  margin-left: 30px;
+  
 }
 
-#carouselExampleControls{
-  width: 50px;
-  height: 50px;
-  margin-bottom: 50px;
-  margin-top: 20px;
+.bio {
+  text-align: center;
+  font-size: large;
 }
 
-.hr{
+.footer {
+  padding-top: 10px;
+}
+
+.new_bikes {
+  padding: 10px;
+  text-align: center;
+}
+
+.btn-outline-light {
+  color: #000 !important;
 }
