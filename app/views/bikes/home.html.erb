@@ -27,3 +27,86 @@
     <% end %>
   </table>
 </div>
+
+
+<div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("bmx.jpg", alt: "image 1",
+                    class: "img-responsive",
+                    data: { toggle: "modal", target: "#myModal" }),
+                            "#myGallery", data: { slide_to: "0" } %>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("bridge.png", alt: "image 2",
+                    class: "img-responsive",
+                    data: { toggle: "modal", target: "#myModal" }),
+                            "#myGallery", data: { slide_to: "1" } %>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("centurion.jpg", alt: "image 3",
+                    class: "img-responsive",
+                    data: { toggle: "modal", target: "#myModal" }),
+                            "#myGallery", data: { slide_to: "2" }  %>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-6">
+      <%= link_to image_tag("Journeyman.jpg", alt: "image 4",
+                    class: "img-responsive",
+                    data: { toggle: "modal", target: "#myModal"}),
+                            "#myGallery", data: { slide_to: "3" }%>
+    </div>
+  </div>
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <div class="pull-left"><h4>Bike Gallery</h4></div>
+              <button type="button" class="close" data-dismiss="modal" title="Close">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+          </div>
+    <div class="modal-body">
+    <!--CAROUSEL CODE GOES HERE-->
+      <div id="myGallery" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+
+          <div class="item active">
+            <%= image_tag("bmx.jpg",
+                          alt: "Image description here",
+                          class: "img-responsive") %>
+          </div>
+          <div class="item">
+            <%= image_tag("bridge.png",
+                          alt: "Image description here", 
+                          class: "img-respponsive") %>
+            </div>
+          <div class="item">
+            <%= image_tag("centurion.jpg",
+                          alt: "Image description here", 
+                          class: "img-respponsive") %>
+          </div>
+          <div class="item">
+            <%= image_tag("Journeyman.jpg",
+                          alt: "Image description here", 
+                          class: "img-respponsive") %>
+          </div>
+
+
+
+        </div><!--end carousel-inner-->
+          <!-- Previous and Next buttons-->
+          <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control"
+            href="#myGallery" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+      </div><!--end myGallery-->
+    
+    </div><!--end modal-body-->
+        <div class="modal-footer">
+        <div class="pull-left">
+        </div>
+          <button class="btn-sm close" type="button" data-dismiss="modal">Close</button>
+      </div><!--end modal-footer-->
+    </div><!--end modal-content-->
+  </div><!--end modal-dialoge-->
+</div><!--end myModal-->
