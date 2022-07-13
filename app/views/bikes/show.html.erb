@@ -21,7 +21,8 @@
               <hr class="p-0 m-0">
             </div>
             <div class="col-lg-12 pt-2">
-              <h2>Product Detail</h2>
+              <h3>Product Detail</h3>
+              <ul>
               <h4>Category: <%= @bike.category%>
                 <h4>
                   <h4>Size: <%= @bike.size%>
@@ -32,10 +33,11 @@
                             <h4>
                               <h4>Status: <%= @bike.status%>
                                 <h4>
+                                </ul>
                                   <h4>Description: <%= @bike.description%></h4>
                                   <br>
                                   <% if @bike.reviews.any? %>
-                                    <h3>Reviews for this bike:</h3>
+                                    <h3>Reviews for this bike</h3>
                                     <% @bike.reviews.each do |review| %>
                                       <ul>
                                         <h4>
