@@ -1,14 +1,17 @@
-<div class="container">
-  <h1>Bike: <%= @bike.name %></h1>
-  <h2><%= @review.rating %> out of 5 stars</h2>
-  <h3><%= @review.content %></h3>
-
-
-    <p><%= link_to "Edit review", edit_bike_review_path(@bike, @review), class: "btn btn-default" %></p>
-    <p><%= link_to "Delete review", bike_review_path(@bike, @review),  class: "btn btn-danger",
+<div class="jumbotron jumbotron-fluid" style= "background-color: #e5b759">
+  <div class="container">
+    <hr>
+    <h2><%= @bike.name %></h2>
+    <h3><%= @review.rating %> out of 5 ⚙️ </h3>
+    <h4><%= @review.content %></h4>
+    <hr>
+    <br>
+    <% if current_user && current_user.admin %>
+      <p><%= link_to "Edit review", edit_bike_review_path(@bike, @review), class: "btn btn-default" %></p>
+      <p><%= link_to "Delete review", bike_review_path(@bike, @review),  class: "btn btn-danger",
                             :data => {:confirm => "Are you sure you want to delete #{@bike.name} review?",
                                           :method => "delete"} %></p>
-
-
-  <p><%= link_to "Return to bike", bike_path(@bike), class: "btn btn-default" %></p>
+    <% end %>
+    <p><%= link_to "Return to bike", bike_path(@bike), class: "btn btn-dark" %></p>
+  </div>
 </div>
