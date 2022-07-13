@@ -1,29 +1,30 @@
-
-
-<div class="container">
+<div class="home-bike">
   <%= image_tag "bridge.png" %>
-  <hr> 
-  <h3><em> Bike Gallery PDX is a non-profit bike shop located in Northeast Portland. Our mission is to increase public access to affordable and safe bicycles while empowering self-sufficiency in bicycle maintenance and commute. Established 2022. </em></h3>
-  <hr>
-
- <div class="new_bikes">
-  <h2>new additions!</h2>
-  <table>
-      <% @bikes.three_most_recent.each_slice(3) do |bikes|%>
-        <tr>
-          <% bikes.each do |bike| %>
-            <td>
-              <% if bike.bike_photo.attached? %> 
-                <%= image_tag bike.bike_photo %>
-              <% end %> 
-              <h3> <%=link_to bike.name, bike_path(bike) %></h3>
-              <p> Price: $<%= bike.price %> · <%= bike.make %> · <%= bike.year %>  </p>
-            </td>
-          <%end%>
-        </tr>    
-      <% end %>
-    </table>
+</div>
+<div class="bio">
+  <div class="jumbotron jumbotron-fluid" style= "background-color: #f2c165; padding: 55px;">
+    <div class="container">
+      <hr>
+      <h3><em> Bike Gallery PDX is a non-profit bike shop located in Northeast Portland. Our mission is to increase public access to affordable and safe bicycles while empowering self-sufficiency in bicycle maintenance and commute. Established 2022. </em></h3>
+      <hr>
+    </div>
   </div>
 </div>
-
-
+<div class="new_bikes">
+  <h2>🔥Fresh off the grill🔥</h2>
+  <table>
+    <% @bikes.three_most_recent.each_slice(3) do |bikes|%>
+      <tr>
+        <% bikes.each do |bike| %>
+          <td>
+            <% if bike.bike_photo.attached? %>
+            <% end %>
+            <%= image_tag "logo.png" %>
+            <h3> <%=link_to bike.name, bike_path(bike) %></h3>
+            <p> Price: $<%= bike.price %> · <%= bike.make %> · <%= bike.year %>  </p>
+          </td>
+        <%end%>
+      </tr>
+    <% end %>
+  </table>
+</div>
