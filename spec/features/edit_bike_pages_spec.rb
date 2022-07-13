@@ -18,5 +18,15 @@ describe "edit a bike process" do
     expect(page).to have_content 'Lamb Chop'
   end
 
+  it "provides confirmation when product updated" do
+    visit bikes_path
+    click_on('Pork Chop', match: :first)
+    click_on'Edit'
+    fill_in 'Name', :with =>'Lamb Chop'
+    click_on 'Update Bike'
+    expect(page).to have_content 'Bike successfully updated'
+  end
+
+ 
 
 end
