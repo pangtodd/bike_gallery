@@ -1,69 +1,75 @@
-<div class="jumbotron jumbotron-fluid" style= "background-color: #d6bc6f">
-  <div class="container">
-    <div class="col-lg-12 border p-3 main-section">
-      <div class="row m-0">
-        <div class="col-lg-5 left-side-product-box pb-3">
+<div class="container">
+  <div class="col-lg-12 p-3 main-section">
+    <div class="row m-0">
+      <div class="col-lg-5 left-side-product-box pb-3" >
+        <div class="bike-show">
           <% if @bike.bike_photo.attached? %>
             <%= image_tag @bike.bike_photo %>
           <% end %>
         </div>
-        <div class="col-lg-7">
-          <div class="right-side-pro-detail border p-3 m-0">
-            <div class="row">
-              <div class="col-lg-12">
-                <h4>Model: <%= @bike.model%></h4>
-                <p class="m-0 p-0">Make: <%= @bike.make%></p>
-              </div>
-              <div class="col-lg-12">
-                <p class="m-0 p-0 price-pro">$<%= @bike.price %></p>
-                <hr class="p-0 m-0">
-              </div>
-              <div class="col-lg-12 pt-2">
-                <h4>Product Detail</h4>
-                <p>Category: <%= @bike.category%></p>
-                <p>Size: <%= @bike.size%></p>
-                <p>Year: <%= @bike.year%></p>
-                <p>Color: <%= @bike.color%></p>
-                <p>Status: <%= @bike.status%></p>
-                <span>Description: <%= @bike.description%></span>
-                <% if @bike.reviews.any? %>
-                  <h4>Reviews for this bike:</h4>
-                  <% @bike.reviews.each do |review| %>
-                    <ul>
-                      <li>
+      </div>
+      <div class="col-lg-7">
+        <div class="right-side-pro-detail p-3 m-0" style= "background-color: #c8d1be">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3><%= @bike.model%></h3>
+              <h1 class="m-0 p-0"><%= @bike.make%></h1>
+              <br>
+            </div>
+            <div class="col-lg-12">
+              <h4 class="m-0 p-0 price-pro">$<%= @bike.price %></h4>
+              <hr class="p-0 m-0">
+            </div>
+            <div class="col-lg-12 pt-2">
+              <h2>Product Detail</h2>
+              <h4>Category: <%= @bike.category%>
+                <h4>
+                  <h4>Size: <%= @bike.size%>
+                    <h4>
+                      <h4>Year: <%= @bike.year%>
                         <h4>
-                          <%= link_to "#{review.rating} ⭐ review by #{review.author}", bike_review_path(@bike, review) %>
-                        </h4>
-                      </li>
-                    </ul>
-                  <% end %>
-                <% else %>
-                  <p>No reviews are listed for this bike.</p>
-                <% end %>
-                <hr class="m-0 pt-2 mt-2">
-              </div>
-              <div class="col-lg-12 mt-3">
-                <div class="row">
-                  <div class="col-lg-6 pb-2">
-                    <p>Like what you see? 👀</p>
-                    <p>give us a call or stop by the shop!</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <p><%= link_to "Add a review", new_bike_review_path(@bike), class: "btn btn-default" %></p>
-                    <% if current_user && current_user.admin %>
-                      <p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-default" %></p>
-                    </div>
-                    <p><%= link_to "Delete", bike_path(@bike),  class: "btn btn-danger",
+                          <h4>Color: <%= @bike.color%>
+                            <h4>
+                              <h4>Status: <%= @bike.status%>
+                                <h4>
+                                  <h4>Description: <%= @bike.description%></h4>
+                                  <br>
+                                  <% if @bike.reviews.any? %>
+                                    <h3>Reviews for this bike:</h3>
+                                    <% @bike.reviews.each do |review| %>
+                                      <ul>
+                                        <h4>
+                                          <%= link_to "#{review.rating} ⚙️ review by #{review.author}", bike_review_path(@bike, review), class: "btn btn-outline-light" %>
+                                        </h4>
+                                      </ul>
+                                    <% end %>
+                                  <% else %>
+                                    <p>No reviews are listed for this bike.</p>
+                                  <% end %>
+                                  <hr class="m-0 pt-2 mt-2">
+                                </div>
+                                <div class="col-lg-12 mt-3">
+                                  <div class="row">
+                                    <div class="col-lg-6 pb-2">
+                                      <h4>Like what you see? 👀</h4>
+                                      <h4>give us a call or stop by the shop!</h4>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <p><%= link_to "Add a review", new_bike_review_path(@bike), class: "btn btn-dark" %></p>
+                                      <% if current_user && current_user.admin %>
+                                        <p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-dark" %></p>
+                                      </div>
+                                      <p><%= link_to "Delete", bike_path(@bike),  class: "btn btn-danger",
                           :data => {:confirm => "Are you sure you want to delete: #{@bike.name}?",
                                     :method => "delete"} %></p>
-                  <% end %>
-                  <p><%= link_to "Return to bikes", bikes_path, class: "btn btn-default" %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                                    <% end %>
+                                    <p><%= link_to "Return to bikes", bikes_path, class: "btn btn-dark" %></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
