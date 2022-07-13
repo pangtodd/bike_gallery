@@ -8,20 +8,18 @@
               <%= link_to "Admin", rails_admin_path %>
             <% end %>
             <% if user_signed_in? %>
-              <%= link_to "Logout", destroy_user_session_path, class: "btn btn-default", method: :delete %>
-              <%= link_to "Profile", user_path(current_user), class: "btn btn-default"%>
+              <%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete %>
+              <%= link_to "Profile", user_path(current_user), class: "btn btn-dark"%>
             <% else %>
-              <%= link_to "Login", new_user_session_path, class: "btn btn-default"%>
-              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default" %>
+              <%= link_to "Login", new_user_session_path, class: "btn btn-dark"%>
+              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark" %>
             <% end %>
-            <%= link_to "Home", root_path, class: "btn btn-default" %>
-            <%= link_to "All Bikes", bikes_path, class: "btn btn-default" %>
+            <%= link_to "Home", root_path, class: "btn btn-dark" %>
+            <%= link_to "All Bikes", bikes_path, class: "btn btn-dark" %>
           </div>
-          <ul class="nav navbar-nav navbar-right">
-            <% if is_admin? %>
-              <%= link_to "New Bike", new_bike_path, class: "btn btn-default" %>
-            <% end %>
-          </ul>
+          <% if is_admin? %>
+            <%= link_to "New Bike", new_bike_path, class: "btn btn-dark" %>
+          <% end %>
         </div>
       </nav>
     </div>
