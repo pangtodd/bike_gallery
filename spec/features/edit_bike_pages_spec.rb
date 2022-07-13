@@ -26,7 +26,7 @@ describe "edit a bike process" do
     click_on 'Update Bike'
     expect(page).to have_content 'Bike successfully updated'
   end
-  
+
   it "returns an error if a field is blank." do
     click_on('Pork Chop', match: :first)
     click_on'Edit'
@@ -35,4 +35,9 @@ describe "edit a bike process" do
     expect(page).to have_content "Name can't be blank"
   end
 
+  it "is able to delete an existing product" do
+    click_on('Pork Chop', match: :first)
+    click_on'Delete'
+    expect(page).to_not have_content "Pork Chop"
+  end
 end
