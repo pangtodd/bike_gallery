@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col">
+    <h1><%= @user.full_name %></h1>
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+    <br>
+    <% if current_user.id == @user.id %>
+      <%= link_to 'Edit My Profile', edit_user_path(current_user), class: 'btn btn-primary' %>
+      <%= link_to 'Edit My Account', edit_user_registration_path(current_user), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
