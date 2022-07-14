@@ -5,6 +5,10 @@ body {
   background-color: #ffffff;
 }
 
+.photoGallery {
+  text-align: center;
+}
+
 @media screen and (max-width: 800px) {
   .body {
     flex: 50%;
