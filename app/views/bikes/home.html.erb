@@ -1,4 +1,4 @@
-<div class="home-bike">
+0<div class="home-bike">
   <%= image_tag "bridge.png" %>
 </div>
 <div class="bio">
@@ -18,6 +18,7 @@
         <% bikes.each do |bike| %>
           <td>
             <% if bike.bike_photo.attached? %>
+              <%= image_tag bike.bike_photo %>
             <% end %>
             <h3> <%=link_to bike.name, bike_path(bike) %></h3>
             <p> Price: $<%= bike.price %> · <%= bike.make %> · <%= bike.year %>  </p>
@@ -28,33 +29,21 @@
   </table>
 </div>
 
-
-<div class="row">
-    <div class="col-md-3 col-sm-3 col-xs-6">
-      <%= link_to image_tag("bmx.jpg", alt: "image 1",
-                    class: "img-responsive",
-                    data: { toggle: "modal", target: "#myModal" }),
-                            "#myGallery", data: { slide_to: "0" } %>
+<div class="photoGallery">
+  <div class = "container">
+    <h3> Whoa! Click below </h3>
+    <div class="col d-flex justify-content-center">.  
+      <div class="card-text-center" style="width: 50rem", >
+          <%= link_to image_tag("gallery.jpeg", alt: "image 4",
+                        class: "img-responsive",
+                        data: { toggle: "modal", target: "#myModal"}),
+                                "#myGallery", data: { slide_to: "3" }%>
+      </div>
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-6">
-      <%= link_to image_tag("bridge.png", alt: "image 2",
-                    class: "img-responsive",
-                    data: { toggle: "modal", target: "#myModal" }),
-                            "#myGallery", data: { slide_to: "1" } %>
-    </div>
-    <div class="col-md-3 col-sm-3 col-xs-6">
-      <%= link_to image_tag("centurion.jpg", alt: "image 3",
-                    class: "img-responsive",
-                    data: { toggle: "modal", target: "#myModal" }),
-                            "#myGallery", data: { slide_to: "2" }  %>
-    </div>
-    <div class="col-md-3 col-sm-3 col-xs-6">
-      <%= link_to image_tag("Journeyman.jpg", alt: "image 4",
-                    class: "img-responsive",
-                    data: { toggle: "modal", target: "#myModal"}),
-                            "#myGallery", data: { slide_to: "3" }%>
-    </div>
+    <h3>to check out our photos!</h3>
   </div>
+</div>
+
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
       <div class="modal-content">
@@ -70,22 +59,22 @@
         <div class="carousel-inner">
 
           <div class="item active">
-            <%= image_tag("bmx.jpg",
+            <%= image_tag("communityvolunteer.jpeg",
                           alt: "Image description here",
                           class: "img-responsive") %>
           </div>
           <div class="item">
-            <%= image_tag("bridge.png",
+            <%= image_tag("group.jpeg",
                           alt: "Image description here", 
                           class: "img-respponsive") %>
             </div>
           <div class="item">
-            <%= image_tag("centurion.jpg",
+            <%= image_tag("kids.jpg",
                           alt: "Image description here", 
                           class: "img-respponsive") %>
           </div>
           <div class="item">
-            <%= image_tag("Journeyman.jpg",
+            <%= image_tag("wheelfix.jpeg",
                           alt: "Image description here", 
                           class: "img-respponsive") %>
           </div>

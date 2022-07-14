@@ -16,10 +16,10 @@
             <% end %>
             <%= link_to "Home", root_path, class: "btn btn-dark" %>
             <%= link_to "All Bikes", bikes_path, class: "btn btn-dark" %>
+            <% if is_admin? %>
+              <%= link_to "New Bike", new_bike_path, class: "btn btn-dark" %>
+            <% end %>
           </div>
-          <% if is_admin? %>
-            <%= link_to "New Bike", new_bike_path, class: "btn btn-dark" %>
-          <% end %>
         </div>
       </nav>
     </div>
