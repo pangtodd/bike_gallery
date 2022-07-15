@@ -3,11 +3,11 @@ require 'faker'
 
 Bike.destroy_all
 Review.destroy_all
-# User.destroy_all
+User.destroy_all
 
-# admin = User.create!(:email => 'admin@test.com', :password => 'Password@123', :admin => true)
-# user = User.create!(:email => 'user@test.com', :password => 'Password@123')
 
+admin = User.create!(:email => 'admin@test.com', :password => 'password', :admin => true)
+user = User.create!(:email => 'user@test.com', :password => 'password')
 10.times do |index|
 bike = Bike.create!(name: Faker::Kpop.iii_groups,
     make: Faker::Vehicle.make,
