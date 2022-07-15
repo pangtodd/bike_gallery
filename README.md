@@ -13,21 +13,23 @@
 * Devise 
 * HTML
 * CSS
-* PSQL 
+* PSQL
+* Active Storage for photos
+* AWS 
 
 ## Description:
-_Using Ruby on Rails and Postgres, this website allows a customer or employee(admin) to sign into Bike Gallery website. From there, admins can manage bikes and general users can add reviews of bikes. Admins posess full CRUD capabilities for both bikes and reviews; signed in users can create reviews; all visitors(admins, signed-in users, or visitors not signed in) can view bikes and reviews. Overall, this website demonstrates our understanding of one-to-many relationship between bikes and Reviews using authentication, scopes, validations, callbacks, seeding, and flash messages._
+_Using Ruby on Rails and Postgres, this website allows a customer or employee(admin) to sign into Bike Gallery website. From there, admins can manage bikes and general users can add reviews of bikes. Admins posess full CRUD capabilities for both bikes and reviews; signed in users can create reviews; all visitors(admins, signed-in users, or visitors not signed in) can view bikes and reviews. Admins are also able to upload photos of bikes while either creating or editing photos; photos are currently configured to save on an AWS bucket. Overall, this website demonstrates our understanding of one-to-many relationship between bikes and Reviews using authentication, scopes, validations, callbacks, seeding, and flash messages._
 
 ## User Stories
 
 * _As an admin, I want to view, add, update and delete bikes._
 * _As an admin, I should be able to log in and log out of the application._
-* _As an admin, I should be able to add, update and delete bikes._
+* _As an admin, I should be able to add, update and delete reviews._
 *  _As an admin, I should be able to add reviews._
 * _As a user, I want to be able to create an account and add a review to a bike._
 
 
-## Setup/Installation Requirements for Windows
+## Setup/Installation Requirements
 
 * _You will need to install the following before proceeding (click on the link to follow the installation process):_
 _[Ruby](https://www.ruby-lang.org/en/documentation/installation/),_
@@ -35,8 +37,10 @@ _[PostgreSQL](https://www.postgresql.org/docs/current/tutorial-install.html)_
 * Clone or download this repository onto your desktop.
 * Navigate to the top-level of directory.
 * Open VScode.
+* Open the Gemfile at the root level. Make sure your version of Ruby matches.
 * Type "bundle" to install the gems
-* In `Config/database.yml` file, add username & password to the `development:`, `test:`, & `production:`
+* Make sure the appropriate code is commented in/out of `Config/database.yml` (we have configs for both Mac and PC)
+* If using Windows, in `Config/database.yml` file, add username & password to the `development:`, `test:`, & `production:`
 * An Example:  
 ```
 development:
@@ -46,8 +50,19 @@ username: <%= ENV['POSTGRES_USERNAME'] %>
 password: <%= ENV['POSTGRES_PASSWORD'] %> 
 ```
 
-* **To Run the App in Browser**: 
-  1. Run `pg_ctl start` in the terminal to run a server. 
+**To enable photos to be posted**: 
+Currently, the app is set up to store photos via an AWS bucket. If you have an AWS account and bucket you would like to use:
+  1. Update `Config/storage.yml` to reflect your Amazon bucket's region and bucket name.
+  2. Update your credentials. In your temrinal, type `EDITOR=nano bin/rails credentials:edit` (if you already have an editor set up, skip the `EDITOR=nano`).
+  3. Update the credentials to match your bucket's AWS/IAM credentials. 
+  4. Make sure it is not commented out. Save file.
+
+If you do not have an AWS account and want to try out saving photos, you can save them locally:
+  1. Update `config/environment/development.rb`. Change `config.active_storage.service = :amazon` to `config.active_storage.service = :local`.
+  2. Update `config/environment/production.rb`. Change `config.active_storage.service = :amazon` to `config.active_storage.service = :local`.
+
+**To Run the App in Browser**: 
+  1. On Windows, run `pg_ctl start` in the terminal to run a server. On Mac, run `postgres`
   2. `rake db:create`
   3. `rake db:test:prepare`
   4. `rake db:migrate`
@@ -55,51 +70,7 @@ password: <%= ENV['POSTGRES_PASSWORD'] %>
   6. Then run `rails s` to start up rails, which you can access by entering `localhost:3000` in your browser.
 * **To Run Tests**: In the root directory of this project, run `rspec` in your command line.
 
-## Setup/Installation Requirements for Mac
 
-* _You will need to install the following before proceeding (click on the link to follow the installation process):_
-_[Ruby](https://www.ruby-lang.org/en/documentation/installation/),_
-_[PostgreSQL](https://www.postgresql.org/docs/current/tutorial-install.html)_
-* Clone or download this repository onto your desktop.
-* Navigate to the top-level of directory.
-* Open VScode.
-* Type "bundle" to install the gems
-
-* _Open up postgres (type in the terminal):_
-```
-postgres
-```
-
-#### Database setup:
-* _Open up a new terminal tab_
-* _create database (type in terminal):_
-```
-rake db:setup
-```
-* _To  create migration (type in terminal):_
-* _for more inforamation on migrations check out [Rails Guides](https://guides.rubyonrails.org/active_record_migrations.html)_
-```
-rake db:migrate
-```
-```
-rake db:test:prepare
-```
-* _seed database with faker gem (type in terminal):_
-```
-rake db:seed
-```
-
-#### Server:
-* _Start server (type in terminal):_
-```
-rails s
-```
-
-* _Open up your browser and go to:_
-```
-http://localhost:3000/
-```
-* **To Run Tests**: In the root directory of this project, run `rspec` in your command line.
 
 #### Users:
 
@@ -125,15 +96,22 @@ User.where(email:"Insert your email here").update(admin: true)
 * _Click on the pencil icon next to the user you want to edit._
 * _Scroll down and hit the check box next to "Admin"._
 
-###### Alternatively, if you seeded the database
-* _you can sign in as the admin that is provided:_
+Alternatively, if you seeded the database:
+* _you can sign in as a user with:_
 ```
-email: "user@gmail.com"
+email: "user test.com"
+password: "password"
+```
+
+* _you can sign in as an admin with:_
+```
+email: "admin@test.com"
 password: "password"
 ```
 ## Known Bugs
 
-- _N/A_
+- As of 7/15, no known bugs.
+- if you notice any bugs or errors, please email pang.todd@gmail.com
 
 ## License
 
